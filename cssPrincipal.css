@@ -1,0 +1,100 @@
+#Logo{
+
+    text-align: center;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 125px;
+}
+
+footer {
+    background-color: #111;
+    color: rgb(201, 201, 201);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .links a {
+    color:bisque;
+    margin-right: 1rem;
+    text-decoration: none;
+  }
+
+  .container{
+    color: bisque;
+  }
+
+  .opiniones{
+    text-align: center;
+    color: rgb(201, 201, 201);
+  }
+  .body{
+
+    background-color:gainsboro;
+  
+  
+  
+
+    background-color:rgb(80, 79, 79);
+  }
+
+  .sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 16px;
+  }
+
+  
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+
+ 
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+
+ 
+  .main {
+    margin-left: 200px;
+    padding: 16px;
+    color: rgb(201, 201, 201);
+    font-size: 18px;
+  }
+
+  
+  @media (max-width: 600px) {
+    .sidebar {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.main {
+  margin-left: 0;
+  color: #818181;
+}
+}
+
+.Anime{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
