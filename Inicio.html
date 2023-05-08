@@ -90,13 +90,13 @@
             color: black;
         }
 
-        .texto{
+        .texto {
             font-size: 15px;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             text-align: center;
         }
 
-        .caja1{
+        .caja1 {
             width: 30%;
             background-color: rgb(0, 0, 0);
             border-radius: 20px;
@@ -108,7 +108,7 @@
             color: white;
         }
 
-        .caja2{
+        .caja2 {
             width: 30%;
             background-color: rgb(0, 0, 0);
             border-radius: 20px;
@@ -119,38 +119,27 @@
             cursor: pointer;
             color: white;
         }
-        
     </style>
-      <script>
-      function verificarEdad() {
-        const fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value);
-        const hoy = new Date();
-        const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-        if (hoy.getMonth() < fechaNacimiento.getMonth() || 
-            (hoy.getMonth() === fechaNacimiento.getMonth() && hoy.getDate() < fechaNacimiento.getDate())) {
-            edad--;
+    <script>
+        window.onload = function () {
+            const fechaNacimiento = new Date(prompt("Por favor, introduce tu fecha de nacimiento en formato dd/mm/aaaa:"));
+            const hoy = new Date();
+            const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            if (hoy.getMonth() < fechaNacimiento.getMonth() ||
+                (hoy.getMonth() === fechaNacimiento.getMonth() && hoy.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+            if (edad < 18) {
+                alert("Lo siento, debes ser mayor de 18 años para acceder a esta página web.");
+                window.location.href = "https://www.google.com"; // redirige a otra página
+            }
         }
-        if (edad < 18) {
-            alert("Lo siento, debes ser mayor de 18 años para acceder a esta página web.");
-            window.location.href = "https://www.google.com"; // redirige a otra página
-            alert("Has sido redirigido a Google porque eres menor de 18 años.");
-        }
-        else {
-            alert("Bienvenido a nuestra página web.");
-            // permite el acceso al contenido de la página web
-        }
-      }
-      </script>
-      
+
+    </script>
+
 </head>
 
 <body>
-    <form onsubmit="verificarEdad(); return false;">
-        <label>Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" required>
-        <button type="submit">Entrar</button>
-      </form>
-      
     <div class="fondo"></div>
     <div class="navbar">
         <a href="#home">Inicio</a>
@@ -162,55 +151,57 @@
     </div>
     <div class="anime-list">
         <div class="anime-card">
-            
+
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpyMxvYi88EraEdu_d1qNwj9Adej-MDYQklg&usqp=CAU"
                 alt="Información">
             <button onclick="mostrarMas('card-1')">Mostrar más</button>
             <div id="card-1" style="display:none;">
-                <p class="texto">En esta página web encontrarás todo tipo de información sobre los animes más relevantes de los últimos
+                <p class="texto">En esta página web encontrarás todo tipo de información sobre los animes más relevantes
+                    de los últimos
                     tiempos, al igual que una lista donde encontraremos los personajes más famosos y queridos por la
                     comunidad.</p>
             </div>
         </div>
-        
+
         <div class="anime-card">
             <img src="https://cinreservas.com/wp-content/uploads/2020/07/akira-WEB.png" alt="Premios">
             <button onclick="mostrarMas('card-2')">Mostrar más</button>
             <div id="card-2" style="display:none;">
-                <p class="texto">También podrás encontrar los eventos más relevantes de entrega de premios anime, al igual que podrás ver
+                <p class="texto">También podrás encontrar los eventos más relevantes de entrega de premios anime, al
+                    igual que podrás ver
                     todos los ganadores a estos premios de los últimos años.</p>
             </div>
         </div>
     </div>
 
     <div class="anime-list">
-    <div class="caja1">
-            
-            <img src="https://cutewallpaper.org/25/anime-all-characters-wallpaper/123728353.jpg"
-                alt="Información" width="100%" height="200px">
+        <div class="caja1">
+
+            <img src="https://cutewallpaper.org/25/anime-all-characters-wallpaper/123728353.jpg" alt="Información"
+                width="100%" height="200px">
             <button onclick="mostrarMas('card-3')">Mostrar más</button>
             <div id="card-3" style="display:none;">
                 <p class="texto">Además en esta página web</p>
-    </div>
-    </div>
-    
-    <div class="caja2">
-            
-            <img src="https://cutewallpaper.org/25/anime-wallpaper-many-characters/2753522655.jpg"
-                alt="Información" width="100%" height="200px">
+            </div>
+        </div>
+
+        <div class="caja2">
+
+            <img src="https://cutewallpaper.org/25/anime-wallpaper-many-characters/2753522655.jpg" alt="Información"
+                width="100%" height="200px">
             <button onclick="mostrarMas('card-4')">Mostrar más</button>
             <div id="card-4" style="display:none;">
                 <p class="texto">Además en esta página web</p>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-    
+
 
     <script>
         function mostrarMas(cuadro) {
             var contenido = document.getElementById(cuadro);
             var boton = document.querySelector('[onclick="mostrarMas(\'' + cuadro + '\')"]');
-        
+
             if (contenido.style.display === "none") {
                 contenido.style.display = "block";
                 boton.innerHTML = "Mostrar menos";
@@ -221,7 +212,5 @@
         }
     </script>
 </body>
+
 </html>
-
-
-
