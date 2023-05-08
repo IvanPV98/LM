@@ -95,13 +95,62 @@
             font-family:Verdana, Geneva, Tahoma, sans-serif;
             text-align: center;
         }
+
+        .caja1{
+            width: 30%;
+            background-color: rgb(0, 0, 0);
+            border-radius: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+        }
+
+        .caja2{
+            width: 30%;
+            background-color: rgb(0, 0, 0);
+            border-radius: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+        }
         
     </style>
-    
+      <script>
+      function verificarEdad() {
+        const fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value);
+        const hoy = new Date();
+        const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+        if (hoy.getMonth() < fechaNacimiento.getMonth() || 
+            (hoy.getMonth() === fechaNacimiento.getMonth() && hoy.getDate() < fechaNacimiento.getDate())) {
+            edad--;
+        }
+        if (edad < 18) {
+            alert("Lo siento, debes ser mayor de 18 años para acceder a esta página web.");
+            window.location.href = "https://www.google.com"; // redirige a otra página
+            alert("Has sido redirigido a Google porque eres menor de 18 años.");
+        }
+        else {
+            alert("Bienvenido a nuestra página web.");
+            // permite el acceso al contenido de la página web
+        }
+      }
+      </script>
+      
 </head>
 
 <body>
-    
+    <form onsubmit="verificarEdad(); return false;">
+        <label>Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" required>
+        <button type="submit">Entrar</button>
+      </form>
+      
     <div class="fondo"></div>
     <div class="navbar">
         <a href="#home">Inicio</a>
@@ -133,6 +182,29 @@
             </div>
         </div>
     </div>
+
+    <div class="anime-list">
+    <div class="caja1">
+            
+            <img src="https://cutewallpaper.org/25/anime-all-characters-wallpaper/123728353.jpg"
+                alt="Información" width="100%" height="200px">
+            <button onclick="mostrarMas('card-3')">Mostrar más</button>
+            <div id="card-3" style="display:none;">
+                <p class="texto">Además en esta página web</p>
+    </div>
+    </div>
+    
+    <div class="caja2">
+            
+            <img src="https://cutewallpaper.org/25/anime-wallpaper-many-characters/2753522655.jpg"
+                alt="Información" width="100%" height="200px">
+            <button onclick="mostrarMas('card-4')">Mostrar más</button>
+            <div id="card-4" style="display:none;">
+                <p class="texto">Además en esta página web</p>
+    </div>
+    </div>
+    </div>
+    
 
     <script>
         function mostrarMas(cuadro) {
