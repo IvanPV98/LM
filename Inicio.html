@@ -122,17 +122,28 @@
     </style>
     <script>
         window.onload = function () {
-            const fechaNacimiento = new Date(prompt("Por favor, introduce tu fecha de nacimiento en formato dd/mm/aaaa:"));
-            const hoy = new Date();
-            const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-            if (hoy.getMonth() < fechaNacimiento.getMonth() ||
-                (hoy.getMonth() === fechaNacimiento.getMonth() && hoy.getDate() < fechaNacimiento.getDate())) {
-                edad--;
+            const fechaNacimientoStr = new Date(prompt("Por favor, introduce tu fecha de nacimiento en formato dd/mm/aaaa:"));
+            const fechaNacimiento = new Date(fechaNacimientoStr);
+            if (isNaN(fechaNacimiento.getTime())){
+                alert("La fecha introducida es invalida. Inténtalo de nuevo");
+                return;
             }
+            const hoy = new Date();
+            const edad = calcularEdad(fechaNacimiento, hoy);
             if (edad < 18) {
                 alert("Lo siento, debes ser mayor de 18 años para acceder a esta página web.");
                 window.location.href = "https://www.google.com"; // redirige a otra página
             }
+        }
+
+        function calcularEdad(fechaNacimiento, fechaActual){
+            let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+            const mesNacimiento = fechaNacimiento.getMonth();
+            const mesActual = fechaActual.getMonth();
+            if (mesActual < mesNacimiento || (mesActual === mesNacimiento && fechaActual.getDate() < fechaNacimiento.getDate())){
+                edad--;
+            }
+            return edad;
         }
 
     </script>
